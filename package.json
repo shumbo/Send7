@@ -27,7 +27,12 @@
     "cordova-plugin-whitelist",
     "cordova-plugin-splashscreen",
     "cordova-plugin-statusbar",
-    "ionic-plugin-keyboard"
+    "ionic-plugin-keyboard",
+    "cordova-plugin-wkwebview-engine",
+    {
+      "locator": "https://git-wip-us.apache.org/repos/asf/cordova-plugins.git#master:local-webserver",
+      "id": "cordova-labs-local-webserver"
+    }
   ],
   "cordovaPlatforms": [
     "ios",
