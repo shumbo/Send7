@@ -1,0 +1,22 @@
+<ion-navbar *navbar>
+  <ion-title>
+    Sender7
+  </ion-title>
+  <ion-buttons end>
+    <button (click)="add()">
+      <ion-icon ios="ios-add" md="md-add"></ion-icon>
+    </button>
+  </ion-buttons>
+</ion-navbar>
+
+<ion-content class="home">
+  <ion-list>
+    <ion-item *ngFor="#app of apps;#i = index" (click)="openDetails(i)">
+      <ion-avatar item-left>
+        <img [src]="app.head.icon">
+      </ion-avatar>
+      <h2>{{app.head.name}}</h2>
+      <p>{{app.head.url}}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

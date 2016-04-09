@@ -1,0 +1,25 @@
+<ion-toolbar>
+  <ion-buttons start>
+    <button (click)="close()">Cancel</button>
+  </ion-buttons>
+  <ion-title>Send Push Notification</ion-title>
+</ion-toolbar>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Title</ion-label>
+      <ion-input type="text" [(ngModel)]="title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Body</ion-label>
+      <ion-textarea type="text" [(ngModel)]="body"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>URL</ion-label>
+      <ion-input type="text" [(ngModel)]="url"></ion-input>
+    </ion-item>
+  </ion-list>
+  <div padding>
+    <button outline block (click)="send()">Send</button>
+  </div>
+</ion-content>
