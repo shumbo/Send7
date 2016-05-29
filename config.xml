@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.shumbo.sender7" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Sender7</name>
+<widget id="org.shumbo.send7" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Send7</name>
     <description>Send Push Notification using Push7</description>
     <author email="hi@ionicframework" href="http://shumbo.org/">Shun Kashiwa</author>
     <content src="http://localhost:8200" />
