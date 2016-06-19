@@ -47,6 +47,7 @@
       "locator": "ios"
     }
   ],
-  "name": "Send7",
+  "name": "send7",
+  "version": "1.0.0",
   "description": "Send7: Send Push Notification using Push7"
 }
