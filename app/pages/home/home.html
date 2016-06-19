@@ -11,7 +11,7 @@
 
 <ion-content class="home">
   <ion-list>
-    <ion-item *ngFor="#app of apps;#i = index" (click)="openDetails(i)">
+    <ion-item *ngFor="let app of apps;let i = index" (click)="openDetails(i)">
       <ion-avatar item-left>
         <img [src]="app.head.icon">
       </ion-avatar>

@@ -1,8 +1,9 @@
+import {Component} from '@angular/core';
 import {Page,NavController,Modal,ViewController,Alert} from 'ionic-angular';
 import {DetailsPage} from '../details/details'; 
 import {Api} from '../../providers/api/api';
 
-@Page({
+@Component({
   templateUrl: 'build/pages/home/home.html'
 })
 export class HomePage {
@@ -15,11 +16,12 @@ export class HomePage {
     this.nav.present(modal);
     modal.onDismiss(
       () => {
+        this.update();
         console.log("Modal closed");
       } 
     );
   }
-  onPageWillEnter() {
+  ionViewWillEnter() {
     this.update();
   }
   public update(){
@@ -31,7 +33,7 @@ export class HomePage {
     this.nav.push(DetailsPage,{index:i});
   }
 }
-@Page({
+@Component({
   templateUrl: 'build/pages/home/addModal.html',
   providers:[Api]
 })

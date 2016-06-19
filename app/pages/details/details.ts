@@ -1,3 +1,4 @@
+import {Component} from '@angular/core';
 import {Page, NavController,ViewController, Modal,NavParams, ActionSheet,Alert} from 'ionic-angular';
 import {Api} from '../../providers/api/api';
 
@@ -7,7 +8,7 @@ import {Api} from '../../providers/api/api';
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 */
-@Page({
+@Component({
   templateUrl: 'build/pages/details/details.html',
   providers: [Api]
 })
@@ -77,7 +78,7 @@ export class DetailsPage {
   }
 }
 
-@Page({
+@Component({
   templateUrl:'build/pages/details/sendModal.html',
   providers:[Api]
 })
