@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Page, NavController,ViewController, Modal,NavParams, ActionSheet,Alert} from 'ionic-angular';
+import {Page, NavController,PopoverController,ActionSheetController,ViewController, ModalController,AlertController,NavParams} from 'ionic-angular';
 import {Api} from '../../providers/api/api';
 
 /*
@@ -21,7 +21,7 @@ export class DetailsPage {
     appno: ""
   };
   private index;
-  constructor(private nav: NavController, private api: Api, private navParams: NavParams) {
+  constructor(private nav: NavController, private api: Api, private navParams: NavParams,private modalCtrl:ModalController,private actionSheetCtrl:ActionSheetController) {
     this.index = navParams.get('index');
     var index = this.index;
     var apps = JSON.parse(localStorage.getItem("apps"));
@@ -45,11 +45,11 @@ export class DetailsPage {
     SendModal.prototype.apikey = this.app.apikey;
     SendModal.prototype.appno = this.app.appno;
     SendModal.prototype.icon = this.app.head.icon;
-    let modal = Modal.create(SendModal);
-    this.nav.present(modal);
+    let modal = this.modalCtrl.create(SendModal);
+    modal.present();
   }
   delete() {
-    let actionSheet = ActionSheet.create({
+    let actionSheet = this.actionSheetCtrl.create({
       title: 'Delete application',
       buttons: [
         {
@@ -73,8 +73,8 @@ export class DetailsPage {
           }
         }
       ]
-    })
-    this.nav.present(actionSheet);
+    });
+    actionSheet.present();
   }
 }
 
@@ -89,7 +89,7 @@ class SendModal{
   public icon;
   public appno;
   public apikey;
-  constructor(private viewCtrl:ViewController,private api:Api,private nav:NavController){
+  constructor(private viewCtrl:ViewController,private api:Api,private nav:NavController,private alertCtrl:AlertController){
   }
   close(){
     this.viewCtrl.dismiss();
@@ -107,7 +107,7 @@ class SendModal{
     this.api.send(this.appno,JSON.stringify(payload)).subscribe(
       data => {
         console.log("Push was sent");
-        let alert = Alert.create({
+        let alert = this.alertCtrl.create({
           title: "Done",
           message: "Push Notification was delivered to the subscribers.",
           buttons:[{
@@ -117,18 +117,18 @@ class SendModal{
             }
           }]
         })
-        this.nav.present(alert);
+        alert.present();
       },
       err => {
         let message = err._body.error || "Failed";
-        let alert = Alert.create({
+        let alert = this.alertCtrl.create({
           title: "Error",
           message: message,
           buttons:[{
             text: "OK"
           }]
         })
-        this.nav.present(alert);
+        alert.present();
       },
       () => console.log("Done")
     )

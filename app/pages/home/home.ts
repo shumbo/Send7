@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Page,NavController,Modal,ViewController,Alert} from 'ionic-angular';
+import {Page,NavController,ModalController,ViewController,AlertController} from 'ionic-angular';
 import {DetailsPage} from '../details/details'; 
 import {Api} from '../../providers/api/api';
 
@@ -8,13 +8,13 @@ import {Api} from '../../providers/api/api';
 })
 export class HomePage {
   public apps;
-  constructor(private nav:NavController) {
+  constructor(private nav:NavController,private modalCtrl:ModalController) {
   }
   add(){
     console.log("Add Modal");
-    let modal = Modal.create(AddModal);
-    this.nav.present(modal);
-    modal.onDismiss(
+    let modal = this.modalCtrl.create(AddModal);
+    modal.present();
+    modal.onDidDismiss(
       () => {
         this.update();
         console.log("Modal closed");
@@ -40,7 +40,7 @@ export class HomePage {
 class AddModal {
   public appno;
   public apikey;
-  constructor(private viewCtrl:ViewController,public api:Api,private nav:NavController){
+  constructor(private viewCtrl:ViewController,public api:Api,private nav:NavController,private alertCtrl:AlertController){
   }
   close(){
     this.viewCtrl.dismiss();
@@ -56,12 +56,12 @@ class AddModal {
         this.viewCtrl.dismiss();
       },
       err => {
-        let alert = Alert.create({
+        let alert = this.alertCtrl.create({
           title:"Error",
           message:"Please make sure your APPNO and APIKEY are correct.",
           buttons:[{text:"OK"}]
         });
-        this.nav.present(alert);
+        alert.present();
       },
       ()=>console.log("Done")
     )
