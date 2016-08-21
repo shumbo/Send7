@@ -3,8 +3,7 @@
     <name>Send7</name>
     <description>Send Push Notification using Push7</description>
     <author email="hi@ionicframework" href="http://shumbo.org/">Shun Kashiwa</author>
-    <content src="http://localhost:8200" />
-    <allow-navigation href="http://localhost:8200" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -52,7 +51,7 @@
     <preference name="BackupWebStorage" value="none" />
     <preference name="FadeSplashScreen" value="true" />
     <preference name="FadeSplashScreenDuration" value="200" />
-    <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="AutoHideSplashScreen" value="true" />
     <preference name="ShowSplashScreenSpinner" value="false" />
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
@@ -65,4 +64,10 @@
     <plugin name="ionic-plugin-keyboard" spec="~2.0.1" />
     <icon src="resources/ios/icon/icon-small@3x.png" />
     <preference name="AlternateContentSrc" value="index.html" />
+    <engine name="ios" spec="~4.2.0" />
+    <plugin name="cordova-plugin-wkwebview-engine" spec="https://github.com/driftyco/cordova-plugin-wkwebview-engine.git" />
+    <feature name="CDVWKWebViewEngine">
+        <param name="ios-package" value="CDVWKWebViewEngine" />
+    </feature>
+    <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
 </widget>
