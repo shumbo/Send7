@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "1.0.0",
+    "gh-pages-travis": "^1.0.4",
     "typescript": "2.0.9"
   }
 }
