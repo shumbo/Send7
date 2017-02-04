@@ -1,13 +1,17 @@
 Send7
 ===
 
-Send Push Notification using Push7 from your smartphone.
+<img src="https://i.imgur.com/7x9xRZW.png" width="320px">
 
-Built with ionic so you can install it to iPhone, Android, and more.
+Push7 Client built with Angular2 and ionic.
+
+## Demo
+
+https://shumbo.github.io/Send7/
 
 ## Installation
 
-To build, install cordova and ionic from npm, then run:
+To build, install cordova and ionic from npm, then run following commands:
 
 ```bash
 git clone git@github.com:shumbo/Send7.git
@@ -16,5 +20,4 @@ npm install
 ionic state restore
 ```
 
-After that, you can add platforms and build it for them.
-
+Add platforms to install your devices.
