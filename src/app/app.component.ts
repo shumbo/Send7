@@ -1,9 +1,9 @@
 import 'reflect-metadata';
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 import 'es6-shim';
-import {Platform,ionicBootstrap} from 'ionic-angular';
-import {StatusBar,Splashscreen} from 'ionic-native';
-import {HomePage} from './pages/home/home';
+import { Platform } from 'ionic-angular';
+import { StatusBar, Splashscreen } from 'ionic-native';
+import { HomePage } from '../pages/home/home';
 
 
 @Component({
@@ -11,7 +11,6 @@ import {HomePage} from './pages/home/home';
 })
 export class MyApp {
   rootPage: any = HomePage;
-
   constructor(platform: Platform) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -21,6 +20,3 @@ export class MyApp {
     });
   }
 }
-ionicBootstrap(MyApp,[],{
-  // config comes here
-});
