@@ -10,3 +10,11 @@ script:
     - ionic build
 after_success:
     - npm run gh-pages-travis
+env:
+    global:
+        - DEPLOY_BRANCH="master"
+        - SOURCE_DIR="www"
+        - TARGET_BRANCH="gh-pages"
+        - SSH_KEY="id_rsa"
+        - GIT_NAME="travis"
+        - GIT_EMAIL="deploy@travis-ci.org"
