@@ -2,7 +2,7 @@ language: node_js
 node_js:
     - "7.5.0"
 before_install:
-    - openssl aes-256-cbc -K $encrypted_ed8b93da2aff_key -iv $encrypted_ed8b93da2aff_iv -in id_rsa.enc -out ~\/.ssh/id_rsa -d
+    - openssl aes-256-cbc -K $encrypted_ed8b93da2aff_key -iv $encrypted_ed8b93da2aff_iv -in id_rsa.enc -out ./id_rsa -d
 install:
     - npm install
 script:
