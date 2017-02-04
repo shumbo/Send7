@@ -70,4 +70,5 @@
         <param name="ios-package" value="CDVWKWebViewEngine" />
     </feature>
     <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
+    <plugin name="cordova-sqlite-storage" spec="~2.0.2" />
 </widget>
