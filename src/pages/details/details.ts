@@ -17,10 +17,10 @@ import { SendModal } from './sendModal';
 export class DetailsPage {
   private app = {
     head: {
-      icon: ""
+      icon: ''
     },
-    apikey: "",
-    appno: ""
+    apikey: '',
+    appno: ''
   };
   private index;
   constructor(
@@ -42,7 +42,7 @@ export class DetailsPage {
           console.log(err);
         },
         () => {
-          storage.set("apps", JSON.stringify(apps));
+          storage.set('apps', JSON.stringify(apps));
           this.app = apps[index];
         }
       )
@@ -66,10 +66,10 @@ export class DetailsPage {
           text: 'Yes, delete it.',
           role: 'destructive',
           handler: () => {
-            console.log("Delete app");
+            console.log('Delete app');
             this.storage.get('apps').then(apps => JSON.parse(apps)).then(apps => {
               apps.splice(this.index, 1);
-              this.storage.set("apps", JSON.stringify(apps));
+              this.storage.set('apps', JSON.stringify(apps));
               setTimeout(() => {
                 this.goBack();
               }, 600);

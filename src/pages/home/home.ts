@@ -15,13 +15,13 @@ export class HomePage {
     private storage:Storage) {
   }
   add() {
-    console.log("Add Modal");
+    console.log('Add Modal');
     let modal = this.modalCtrl.create(AddModal);
     modal.present();
     modal.onDidDismiss(
       () => {
         this.update();
-        console.log("Modal closed");
+        console.log('Modal closed');
       }
     );
   }
@@ -29,13 +29,13 @@ export class HomePage {
     this.update();
   }
   public update() {
-    console.log("Update list");
+    console.log('Update list');
     this.storage.get('apps').then(apps => JSON.parse(apps)).then(apps => {
       this.apps = apps;
     });
   }
   openDetails(i) {
-    console.log("open " + i);
+    console.log('open ' + i);
     this.nav.push(DetailsPage, { index: i });
   }
 }

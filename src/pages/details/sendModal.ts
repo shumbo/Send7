@@ -19,7 +19,7 @@ export class SendModal {
     this.viewCtrl.dismiss();
   }
   send() {
-    console.log("Send notification");
+    console.log('Send notification');
     let payload = {
       title: this.title,
       body: this.body,
@@ -30,12 +30,12 @@ export class SendModal {
     console.log(payload);
     this.api.send(this.appno, JSON.stringify(payload)).subscribe(
       data => {
-        console.log("Push was sent");
+        console.log('Push was sent');
         let alert = this.alertCtrl.create({
-          title: "Done",
-          message: "Push Notification was delivered to the subscribers.",
+          title: 'Done',
+          message: 'Push Notification was delivered to the subscribers.',
           buttons: [{
-            text: "OK",
+            text: 'OK',
             handler: () => {
               this.viewCtrl.dismiss();
             }
@@ -44,17 +44,17 @@ export class SendModal {
         alert.present();
       },
       err => {
-        let message = err._body.error || "Failed";
+        let message = err._body.error || 'Failed';
         let alert = this.alertCtrl.create({
-          title: "Error",
+          title: 'Error',
           message: message,
           buttons: [{
-            text: "OK"
+            text: 'OK'
           }]
         })
         alert.present();
       },
-      () => console.log("Done")
+      () => console.log('Done')
     )
   }
 }

@@ -21,7 +21,7 @@ export class AddModal {
     this.viewCtrl.dismiss();
   }
   add() {
-    console.log("add app");
+    console.log('add app');
     this.api.head(this.appno).subscribe(
       data => {
         let info = { head: data.json(), appno: this.appno, apikey: this.apikey };
@@ -30,19 +30,19 @@ export class AddModal {
             apps = [];
           }
           apps.unshift(info);
-          this.storage.set("apps", JSON.stringify(apps));
+          this.storage.set('apps', JSON.stringify(apps));
           this.viewCtrl.dismiss();
         });
       },
       err => {
         let alert = this.alertCtrl.create({
-          title: "Error",
-          message: "Please make sure your APPNO and APIKEY are correct.",
-          buttons: [{ text: "OK" }]
+          title: 'Error',
+          message: 'Please make sure your APPNO and APIKEY are correct.',
+          buttons: [{ text: 'OK' }]
         });
         alert.present();
       },
-      () => console.log("Done")
+      () => console.log('Done')
     )
   }
 }
