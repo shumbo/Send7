@@ -32,7 +32,7 @@ export class DetailsPage {
     private storage: Storage
   ) {
     this.index = navParams.get('index');
-    var index = this.index;
+    const index = this.index;
     storage.get('apps').then(apps => JSON.parse(apps)).then(apps => {
       api.head(apps[index].appno).subscribe(
         data => {
