@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons start>
-      <button (click)="close()">Cancel</button>
+      <button ion-button (click)="close()">Cancel</button>
     </ion-buttons>
     <ion-title>Add new Application</ion-title>
   </ion-toolbar>
@@ -18,5 +18,5 @@
       <ion-input type="text" [(ngModel)]="apikey"></ion-input>
     </ion-item>
   </ion-list>
-  <button outline block (click)="add()">Register</button>
+  <button ion-button outline block (click)="add()">Register</button>
 </ion-content>
