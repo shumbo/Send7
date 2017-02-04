@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, ActionSheetController, ModalController, NavParams } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 import { Api } from '../../providers/api/api';
 import { SendModal } from './sendModal';
 
@@ -16,28 +17,36 @@ import { SendModal } from './sendModal';
 export class DetailsPage {
   private app = {
     head: {
-      icon: ""
+      icon: ''
     },
-    apikey: "",
-    appno: ""
+    apikey: '',
+    appno: ''
   };
   private index;
-  constructor(private nav: NavController, private api: Api, private navParams: NavParams, private modalCtrl: ModalController, private actionSheetCtrl: ActionSheetController) {
+  constructor(
+    private nav: NavController,
+    private api: Api,
+    private navParams: NavParams,
+    private modalCtrl: ModalController,
+    private actionSheetCtrl: ActionSheetController,
+    private storage: Storage
+  ) {
     this.index = navParams.get('index');
-    var index = this.index;
-    var apps = JSON.parse(localStorage.getItem("apps"));
-    api.head(apps[index].appno).subscribe(
-      data => {
-        apps[index].head = data.json();
-      },
-      err => {
-        console.log(err);
-      },
-      () => {
-        localStorage.setItem("apps", JSON.stringify(apps));
-        this.app = apps[index];
-      }
-    )
+    const index = this.index;
+    storage.get('apps').then(apps => JSON.parse(apps)).then(apps => {
+      api.head(apps[index].appno).subscribe(
+        data => {
+          apps[index].head = data.json();
+        },
+        err => {
+          console.log(err);
+        },
+        () => {
+          storage.set('apps', JSON.stringify(apps));
+          this.app = apps[index];
+        }
+      )
+    });
   }
   goBack() {
     this.nav.pop();
@@ -57,13 +66,14 @@ export class DetailsPage {
           text: 'Yes, delete it.',
           role: 'destructive',
           handler: () => {
-            console.log("Delete app");
-            let apps = JSON.parse(localStorage.getItem("apps"));
-            apps.splice(this.index, 1);
-            localStorage.setItem("apps", JSON.stringify(apps));
-            setTimeout(() => {
-              this.goBack();
-            }, 600);
+            console.log('Delete app');
+            this.storage.get('apps').then(apps => JSON.parse(apps)).then(apps => {
+              apps.splice(this.index, 1);
+              this.storage.set('apps', JSON.stringify(apps));
+              setTimeout(() => {
+                this.goBack();
+              }, 600);
+            });
           }
         },
         {
