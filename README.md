@@ -1,6 +1,8 @@
 Send7
 ===
 
+[![Build Status](https://travis-ci.org/shumbo/Send7.svg?branch=master)](https://travis-ci.org/shumbo/Send7)
+
 <img src="https://i.imgur.com/7x9xRZW.png" width="320px">
 
 Push7 Client built with Angular2 and ionic.
