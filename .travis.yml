@@ -8,11 +8,9 @@ node_js:
 before_install:
     - openssl aes-256-cbc -K $encrypted_ed8b93da2aff_key -iv $encrypted_ed8b93da2aff_iv -in id_rsa.enc -out ./id_rsa -d
 install:
-    - yarn
-    - yarn global add ionic cordova
+    - npm install
 script:
-    - cordova platform add browser
-    - ionic build browser
+    - npm run deploy
 after_success:
     - npm run gh-pages-travis
 env:

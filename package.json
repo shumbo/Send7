@@ -9,7 +9,8 @@
     "build": "ionic-app-scripts build",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
-    "gh-pages-travis": "gh-pages-travis"
+    "gh-pages-travis": "gh-pages-travis",
+    "deploy": "cordova platform add browser && ionic build browser"
   },
   "dependencies": {
     "@angular/common": "2.2.1",
