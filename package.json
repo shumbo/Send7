@@ -34,6 +34,8 @@
   "devDependencies": {
     "@ionic/app-scripts": "1.0.0",
     "gh-pages-travis": "^1.0.4",
+    "cordova": "^6.5.0",
+    "ionic": "^2.2.1",
     "typescript": "2.0.9"
   }
 }
